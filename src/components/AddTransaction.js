@@ -4,6 +4,11 @@ export const AddTransaction = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
 
+  const clickMe = (e) => {
+    e.preventDefault();
+    console.log(e.target.form.action);
+  };
+
   return (
     <div>
       <h3>Add transaction</h3>
@@ -28,7 +33,9 @@ export const AddTransaction = () => {
             placeholder="enter amount"
           />
         </div>
-        <button className="btn">Add transaction</button>
+        <button className="btn" onClick={(e) => clickMe(e)}>
+          Add transaction
+        </button>
       </form>
     </div>
   );
