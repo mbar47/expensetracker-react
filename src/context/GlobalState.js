@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 import { Transaction } from "../components/Transaction";
 import AppReducer from "./AppReducer";
 
@@ -12,7 +12,15 @@ export const GlobalContext = createContext(initialState);
 
 // provider components
 export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const localExpense = JSON.parse(localStorage.getItem("expenses"));
+  const [state, dispatch] = useReducer(
+    AppReducer,
+    localExpense || initialState
+  );
+
+  useEffect(() => {
+    localStorage.setItem("expenses", JSON.stringify(state));
+  }, [state]);
 
   function deleteTransaction(id) {
     dispatch({
