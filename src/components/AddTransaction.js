@@ -4,6 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 export const AddTransaction = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
+  const [category, setCategory] = useState("other");
 
   const { addTransaction } = useContext(GlobalContext);
 
@@ -14,6 +15,7 @@ export const AddTransaction = () => {
       id: Math.floor(Math.random() * 100000000),
       text: text,
       amount: +amount,
+      category: category,
     };
 
     addTransaction(newTransaction);
@@ -42,6 +44,21 @@ export const AddTransaction = () => {
             id="amount"
             placeholder="enter amount"
           />
+        </div>
+        <div className="form-control">
+          <label htmlFor="category">Category</label>
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            id="category"
+          >
+            <option value="Other">Other</option>
+            <option value="Income">Income</option>
+            <option value="Food">Food</option>
+            <option value="Junk">Junk</option>
+            <option value="Hobby">Hobby</option>
+            <option value="Housing cost">Housing cost</option>
+          </select>
         </div>
         <button className="btn">Add transaction</button>
       </form>
