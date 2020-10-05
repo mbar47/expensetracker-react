@@ -8,12 +8,9 @@ export const Balance = () => {
 
   const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
 
-  console.log(total);
-
-  console.log(transactions);
   return (
-    <div>
-      <h4>Your balance</h4>
+    <div className="balance">
+      <h4>Your balance: </h4>
       <h1 id="balance">{total} SEK</h1>
     </div>
   );
