@@ -1,16 +1,12 @@
 import React, { createContext, useReducer, useEffect } from "react";
-import { Transaction } from "../components/Transaction";
 import AppReducer from "./AppReducer";
 
-//init state
 const initialState = {
   transactions: [],
 };
 
-//create context
 export const GlobalContext = createContext(initialState);
 
-// provider components
 export const GlobalProvider = ({ children }) => {
   const localExpense = JSON.parse(localStorage.getItem("expenses"));
   const [state, dispatch] = useReducer(
