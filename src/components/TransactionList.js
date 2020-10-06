@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { GlobalContext } from "../context/GlobalState";
 
-
 export const TransactionList = () => {
   const { transactions } = useContext(GlobalContext);
 
@@ -14,9 +13,13 @@ export const TransactionList = () => {
   const handleHideHistory = (e) => setHideHistory(!hideHistory);
 
   return (
-    <div>
+    <div className="trans-his-container">
       <h3 onClick={(e) => handleHideHistory(e)}>
-        History <FontAwesomeIcon icon={hideHistory ? faAngleUp : faAngleDown} />
+        History{" "}
+        <FontAwesomeIcon
+          pull="right"
+          icon={hideHistory ? faAngleDown : faAngleUp}
+        />
       </h3>
       {!hideHistory ? (
         <ul className="list">

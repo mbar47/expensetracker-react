@@ -8,7 +8,7 @@ export const SwitchButton = ({ displayGraph, setDisplayGraph }) => {
   return (
     <>
       <button className="btn" onClick={(e) => handleOnClick(e)}>
-        {displayGraph ? "Press for list" : "Press for graph"}
+        {displayGraph ? "Show list" : "Show graph"}
       </button>
     </>
   );

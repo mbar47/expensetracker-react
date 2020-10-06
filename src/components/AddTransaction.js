@@ -30,10 +30,13 @@ export const AddTransaction = () => {
 
   const hideTransaction = () => setHideTrans(!hideTrans);
   return (
-    <div>
+    <div className="trans-his-container">
       <h3 onClick={hideTransaction}>
         Add transaction{" "}
-        <FontAwesomeIcon icon={hideTrans ? faAngleUp : faAngleDown} />
+        <FontAwesomeIcon
+          pull="right"
+          icon={hideTrans ? faAngleDown : faAngleUp}
+        />
       </h3>
       {!hideTrans ? (
         <form onSubmit={onSubmit} action="" id="form">
@@ -44,7 +47,7 @@ export const AddTransaction = () => {
               value={text}
               onChange={(e) => setText(e.target.value)}
               id="text"
-              placeholder="enter text..."
+              placeholder="add description..."
             />
           </div>
           <div className="form-control">
@@ -65,7 +68,7 @@ export const AddTransaction = () => {
               id="category"
             >
               <option value="Other">Other</option>
-              <option value="Income">Income</option>
+              <option value="Income">Salary</option>
               <option value="Food">Food</option>
               <option value="Junk">Junk</option>
               <option value="Hobby">Hobby</option>
