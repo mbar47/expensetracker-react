@@ -9,7 +9,7 @@ export const Graphs = () => {
     .filter((item) => item.amount > 0)
     .map((item) => item.category);
 
-  const incomeData = transactions
+  const incomeValue = transactions
     .filter((item) => item.amount > 0)
     .map((item) => item.amount);
 
@@ -17,11 +17,11 @@ export const Graphs = () => {
     .filter((item) => item.amount < 0)
     .map((item) => item.category);
 
-  const expenseData = transactions
+  const expenseValue = transactions
     .filter((item) => item.amount < 0)
     .map((item) => item.amount);
 
-  function vetValueData(labelList, valueList) {
+  function matchValueToLabel(labelList, valueList) {
     let newValue = [];
     for (let i = 0; i < labelList.length; i++) {
       for (let j = i + 1; j < labelList.length; j++) {
@@ -41,11 +41,11 @@ export const Graphs = () => {
 
   const newExpenseLabel = expenseLabel.filter((v, i, a) => a.indexOf(v) === i);
 
-  const newExpenseData = vetValueData(expenseLabel, expenseData);
+  const newExpenseData = matchValueToLabel(expenseLabel, expenseValue);
 
   const newIncomeLabel = incomeLabel.filter((v, i, a) => a.indexOf(v) === i);
 
-  const newIncomeData = vetValueData(incomeLabel, incomeData);
+  const newIncomeData = matchValueToLabel(incomeLabel, incomeValue);
 
   const colors = [
     "rgba(120,200,120,0.5)",

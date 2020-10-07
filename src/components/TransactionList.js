@@ -14,7 +14,7 @@ export const TransactionList = () => {
 
   return (
     <div className="trans-his-container">
-      <h3 onClick={(e) => handleHideHistory(e)}>
+      <h3 onClick={handleHideHistory}>
         History{" "}
         <FontAwesomeIcon
           pull="right"
